@@ -5,13 +5,14 @@
 import argparse
 import math
 from datetime import datetime
+import os
+import sys
+sys.path.append('/groups/turaga/home/turagas/anaconda3/lib/python3.5/site-packages/')
 import h5py
 import numpy as np
 import tensorflow as tf
 import socket
 import importlib
-import os
-import sys
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
 sys.path.append(BASE_DIR)
@@ -130,7 +131,7 @@ def train():
             accuracy = tf.reduce_sum(tf.cast(correct, tf.float32)) / float(BATCH_SIZE)
             tf.summary.scalar('accuracy', accuracy)
 
-            print "--- Get training operator"
+            print("--- Get training operator")
             # Get training operator
             learning_rate = get_learning_rate(batch)
             tf.summary.scalar('learning_rate', learning_rate)
